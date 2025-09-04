@@ -1,0 +1,50 @@
+package entidades;
+
+public class Retangulo implements FiguraGeometrica{
+	private double largura;
+	private double altura;
+	
+	
+	
+	public Retangulo(double largura, double altura) {
+		setAltura(altura);
+		setLargura(largura);
+	}
+	
+	public double getAltura() {
+		return altura;
+	}
+	
+	public void setAltura(double altura) {
+		if (altura <= 0) {
+			//throw new ValorNegativoException("A altura deve ser maior que zero.");
+		}
+		this.altura = altura;
+	}
+	
+	public double getLargura() {
+		return largura;
+		
+	}
+	
+	public void setLargura(double largura) {
+		if (largura <= 0) {
+			//throw new ValorNegativoException("A largura deve ser maior que zero.");
+		}
+		this.largura = largura;
+	}
+	
+	public String toString() {
+		return "O retângulo criado tem altura de tamanho: " + altura + " e largura de tamanho: " + largura;
+	}
+
+	@Override
+	public double calcularArea() {
+		return largura * altura;
+	}
+
+	@Override
+	public double calcularPerimetro() {
+		return (largura + altura)*2;
+	}
+}

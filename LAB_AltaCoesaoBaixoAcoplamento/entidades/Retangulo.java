@@ -35,7 +35,7 @@ public class Retangulo implements FiguraGeometrica{
 	}
 	
 	public String toString() {
-		return "O retângulo criado tem altura de tamanho: " + altura + " e largura de tamanho: " + largura;
+		return "O retângulo criado tem largura de tamanho: " + largura + " e altura de tamanho: " + altura;
 	}
 
 	@Override

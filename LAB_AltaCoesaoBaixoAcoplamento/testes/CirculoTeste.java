@@ -22,6 +22,10 @@ class CirculoTeste {
 		cir.setRaio(2);
 		assertEquals(2, cir.getRaio());
 	}
+	@Test
+	void testValorInvalido(){
+		assertEquals("Valor inválido: valor negativo não permitido",circulo = new Circulo(-1))
+	}
 	
 	@Test
 	void testCalularPerimetroCirculo() {

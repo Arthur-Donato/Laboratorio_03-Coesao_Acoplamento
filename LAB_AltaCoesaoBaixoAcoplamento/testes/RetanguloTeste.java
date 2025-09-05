@@ -22,6 +22,10 @@ class RetanguloTeste {
 		
 		assertEquals(2, ret.getAltura());
 	}
+	void testValorInvalido(){
+		assertEquals("Valor inválido: valor negativo não permitido",retangulo = new Retangulo(-1,20));
+		assertEquals("Valor inválido: valor negativo não permitido",retangulo = new Retangulo(20,-1));
+	}
 	
 	@Test
 	void testGetSetLarguraRetangulo() {

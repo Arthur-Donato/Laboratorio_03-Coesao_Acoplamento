@@ -7,10 +7,13 @@ public class Circulo implements FiguraGeometrica{
 	
 	
 	public Circulo(double raio) {
+		if (raio < 0) {
+			throw new ValorInvalidoException("Valor inválido: valor negativo não permitido");
+		}
+
 		this.raio = raio;
 	}
-	
-	public Circulo() {}
+
 
 	public double getRaio() {
 		return raio;

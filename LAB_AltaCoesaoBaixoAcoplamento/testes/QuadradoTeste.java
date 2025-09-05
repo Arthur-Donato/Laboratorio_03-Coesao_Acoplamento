@@ -21,6 +21,9 @@ class QuadradoTeste {
 		quad.setLado(3);
 		assertEquals(3,quad.getLado());
 	}
+	void testValorInvalido(){
+		assertEquals("Valor inválido: valor negativo não permitido",quadrado = new Quadrado(-1));
+	}
 	
 	@Test
 	void testCalcularPerimetroQuadrado() {

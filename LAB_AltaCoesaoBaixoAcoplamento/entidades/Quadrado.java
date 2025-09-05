@@ -5,6 +5,10 @@ public class Quadrado implements FiguraGeometrica{
 	private double lado;
 	
 	public Quadrado(double lado) {
+		if (lado < 0) {
+			throw new ValorInvalidoException("Valor inválido: valor negativo não permitido");
+		}
+
 		this.lado = lado;
 	}
 	

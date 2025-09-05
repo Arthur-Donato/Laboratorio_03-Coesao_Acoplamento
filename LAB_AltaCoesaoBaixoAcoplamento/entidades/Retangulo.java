@@ -9,6 +9,10 @@ public class Retangulo implements FiguraGeometrica{
 	public Retangulo(double largura, double altura) {
 		setAltura(altura);
 		setLargura(largura);
+		if (largura < 0||altura < 0) {
+			throw new ValorInvalidoException("Valor inválido: valor negativo não permitido");
+		}
+
 	}
 	
 	public Retangulo() {}

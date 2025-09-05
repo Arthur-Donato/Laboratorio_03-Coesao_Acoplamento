@@ -1,12 +1,14 @@
 package entidades;
 
+import exceptions.ValorInvalidoException;
+
 public class Retangulo implements FiguraGeometrica{
 	private double largura;
 	private double altura;
 	
 	
 	
-	public Retangulo(double largura, double altura) {
+	public Retangulo(double largura, double altura) throws ValorInvalidoException {
 		setAltura(altura);
 		setLargura(largura);
 		if (largura < 0||altura < 0) {

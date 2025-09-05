@@ -6,6 +6,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import entidades.Circulo;
+import exceptions.ValorInvalidoException;
 
 class CirculoTeste {
 	
@@ -13,7 +14,12 @@ class CirculoTeste {
 	
 	@BeforeEach
 	public void setUp() {
-		circulo = new Circulo(2);
+		try {
+			circulo = new Circulo(2);
+		} catch (ValorInvalidoException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 	@Test
@@ -22,9 +28,10 @@ class CirculoTeste {
 		cir.setRaio(2);
 		assertEquals(2, cir.getRaio());
 	}
+	
 	@Test
-	void testValorInvalido(){
-		assertEquals("Valor inválido: valor negativo não permitido",circulo = new Circulo(-1))
+	void testValorInvalido() {
+		assertThrows(ValorInvalidoException.class, () -> circulo = new Circulo(-2));
 	}
 	
 	@Test

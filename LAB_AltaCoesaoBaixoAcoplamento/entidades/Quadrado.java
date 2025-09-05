@@ -1,10 +1,12 @@
 package entidades;
 
+import exceptions.ValorInvalidoException;
+
 public class Quadrado implements FiguraGeometrica{
 	
 	private double lado;
 	
-	public Quadrado(double lado) {
+	public Quadrado(double lado) throws ValorInvalidoException {
 		if (lado < 0) {
 			throw new ValorInvalidoException("Valor inválido: valor negativo não permitido");
 		}

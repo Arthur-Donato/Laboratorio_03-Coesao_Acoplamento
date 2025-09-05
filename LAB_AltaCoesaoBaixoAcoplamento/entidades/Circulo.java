@@ -1,17 +1,23 @@
 package entidades;
 
+import exceptions.ValorInvalidoException;
+
 public class Circulo implements FiguraGeometrica{
 	
 	private double raio;
 	private final double PI = 3.14;
 	
 	
-	public Circulo(double raio) {
+	public Circulo(double raio) throws ValorInvalidoException {
 		if (raio < 0) {
 			throw new ValorInvalidoException("Valor inválido: valor negativo não permitido");
 		}
 
 		this.raio = raio;
+	}
+	
+	public Circulo() {
+		
 	}
 
 

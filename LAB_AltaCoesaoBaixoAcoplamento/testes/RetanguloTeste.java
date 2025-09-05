@@ -6,13 +6,19 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import entidades.Retangulo;
+import exceptions.ValorInvalidoException;
 
 class RetanguloTeste {
 	Retangulo retangulo;
 	
 	@BeforeEach
 	public void setUp() {
-		retangulo = new Retangulo(2,2);
+		try {
+			retangulo = new Retangulo(2,2);
+		} catch (ValorInvalidoException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 	@Test
@@ -22,9 +28,16 @@ class RetanguloTeste {
 		
 		assertEquals(2, ret.getAltura());
 	}
-	void testValorInvalido(){
-		assertEquals("Valor inválido: valor negativo não permitido",retangulo = new Retangulo(-1,20));
-		assertEquals("Valor inválido: valor negativo não permitido",retangulo = new Retangulo(20,-1));
+	
+	@Test
+	void testValorInvalidoAlturaRetangulo(){
+		assertThrows(ValorInvalidoException.class , () -> retangulo = new Retangulo(-1,20));
+		
+	}
+	
+	@Test
+	void testValorInvalidoLarguraRetangulo() {
+		assertThrows(ValorInvalidoException.class, () -> retangulo = new Retangulo(20,-1));
 	}
 	
 	@Test

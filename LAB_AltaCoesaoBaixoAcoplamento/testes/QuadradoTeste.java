@@ -6,13 +6,19 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import entidades.Quadrado;
+import exceptions.ValorInvalidoException;
 
 class QuadradoTeste {
 	Quadrado quadrado;
 	
 	@BeforeEach
 	public void setUp() {
-		quadrado = new Quadrado(2);
+		try {
+			quadrado = new Quadrado(2);
+		} catch (ValorInvalidoException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 	
 	@Test
@@ -22,7 +28,7 @@ class QuadradoTeste {
 		assertEquals(3,quad.getLado());
 	}
 	void testValorInvalido(){
-		assertEquals("Valor inválido: valor negativo não permitido",quadrado = new Quadrado(-1));
+		assertThrows(ValorInvalidoException.class, () -> quadrado = new Quadrado(-2));
 	}
 	
 	@Test

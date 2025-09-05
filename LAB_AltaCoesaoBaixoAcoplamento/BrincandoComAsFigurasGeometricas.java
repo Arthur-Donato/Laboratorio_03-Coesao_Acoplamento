@@ -1,50 +1,35 @@
-import entidades.*;
+
+
+import java.util.ArrayList;
+import java.util.List;
+
+import entidades.Circulo;
+import entidades.FiguraGeometrica;
+import entidades.Quadrado;
+import entidades.Retangulo;
+import exceptions.ValorInvalidoException;
+
 public class BrincandoComAsFigurasGeometricas {
 
-	public static void main(String[] args) {
+    public static void main(String[] args) {
 
-		FigurasGeometricas fig = new FigurasGeometricas(10, 5, 7, 25);
-		Quadrado quadrado = new Quadrado(3);
-		
-		System.out.println(quadrado.toString());
-		
-		
-		int per = fig.p(FigurasGeometricas.R);
-		if (per == -234 || per == -2658) {
-			//TODO: Lancar excecoes ao inves de utilizar prints de erro
-			System.out.println("ERRO");
+        List<FiguraGeometrica> figuras = new ArrayList<>();
+        try {
+			figuras.add(new Retangulo(10, 5));
+			figuras.add(new Quadrado(3));
+	        figuras.add(new Circulo(7));
+		} catch (ValorInvalidoException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
-		
-		per = fig.p(FigurasGeometricas.C);
-		if (per == -234 || per == -2658) {
-			System.out.println("ERRO");
-		}
+        
 
-		per = fig.p(-2);
-		if (per == -234 || per == -2658) {
-			System.out.println("ERRO");
-		}
-
-		per = fig.p(0);
-		if (per == -234 || per == -2658) {
-			System.out.println("ERRO");
-		}
-
-		fig.a(0);
-		fig.a(-1);
-		fig.a(2);
-		fig.a(1);
-		fig.a(-2);
-		
-		String inf = fig.toStringDaFigura(-1);
-		inf = fig.toStringDaFigura(1);
-		System.out.println(inf);
-		inf = fig.toStringDaFigura(0);
-		System.out.println(inf);
-		inf = fig.toStringDaFigura(4);
-		System.out.println(inf);
-		inf = fig.toStringDaFigura(2);
-		System.out.println(inf);
-	}
-
+        // sem precisar de if/switch
+        for (FiguraGeometrica figura : figuras) {
+            System.out.println(figura.toString());
+            System.out.println("Área: " + figura.calcularArea());
+            System.out.println("Perímetro: " + figura.calcularPerimetro());
+            System.out.println("----------------------------------");
+        }
+    }
 }

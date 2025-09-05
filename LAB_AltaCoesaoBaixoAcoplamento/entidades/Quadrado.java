@@ -7,6 +7,10 @@ public class Quadrado implements FiguraGeometrica{
 	public Quadrado(double lado) {
 		this.lado = lado;
 	}
+	
+	public Quadrado() {
+		
+	}
 
 	public double getLado() {
 		return lado;

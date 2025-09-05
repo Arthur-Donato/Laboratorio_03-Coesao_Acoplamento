@@ -9,6 +9,8 @@ public class Circulo implements FiguraGeometrica{
 	public Circulo(double raio) {
 		this.raio = raio;
 	}
+	
+	public Circulo() {}
 
 	public double getRaio() {
 		return raio;

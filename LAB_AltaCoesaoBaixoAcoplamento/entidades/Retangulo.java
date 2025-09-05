@@ -11,6 +11,8 @@ public class Retangulo implements FiguraGeometrica{
 		setLargura(largura);
 	}
 	
+	public Retangulo() {}
+	
 	public double getAltura() {
 		return altura;
 	}
